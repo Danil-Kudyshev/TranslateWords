@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка слов</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Great+Vibes&family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+<body>
+    <div class="footer__container">
+        <footer class="footer">
+            <div class="footer_up footer_div">
+                <p class="word_stat">Проверка</p>
+                <p class="word_start1">Слов</p>
+            </div>
+            <div class="footer_bottom footer_div">
+                <p class="word_end"></p>
+                <form action="#">
+                    <input class="word_end1" type="text" placeholder="Введите перевод">
+                    <button class="button_translate"><img src="./icons8-галочка.svg" alt=""></button>
+
+                </form>
+                <div></div>
+            </div>
+            <button class="next_word">Следующее слово</button>
+            <button class="button_tr">Узнать перевод</button>
+            <button class="add_word">Добавить слова</button>
+        </footer>
+    </div>
+    <div class="cover cover_hidden">
+        <div>
+            <div class="popup">
+                <div class="container_word">
+                    <div class="popup_word">
+                        <div class="word_text">
+
+                        </div>
+                        <form action="#">
+                            <input id="10" class="input_add_words" placeholder="Введите слово" type="text">
+                            <button class="add_words"><img src="./icons8-галочка.svg"" alt=""></button>
+                        </form>
+                    </div>
+                    <div class="popup_wordTranslate">
+                        <div class="wordTranslate_text">
+
+                        </div>
+                        <form action="#">
+                            <input id="10" class="input_add_Transwords" placeholder="Введите перевод" type="text">
+                            <button class="add_wordsTranslate"><img src="./icons8-галочка.svg"" alt=""></button>
+                        </form>
+                    </div>
+                </div>
+                <button class="popup_clouse">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./app.js"></script>
+</html>

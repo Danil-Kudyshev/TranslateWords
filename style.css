@@ -1,0 +1,309 @@
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', 'Open Sans', 'Roboto', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+}
+
+/* Общие стили контейнера */
+.footer__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Основной футер с плавающим эффектом */
+.footer {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+/* Верхняя часть с словами */
+.footer_up {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #4A90E2;
+}
+
+/* Нижняя часть с переводом и формой */
+.footer_bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.footer_bottom form {
+    position: relative;
+}
+
+/* Поле ввода и кнопка */
+.word_end1 {
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.word_end1:focus {
+    outline: none;
+    border-color: #4A90E2;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
+}
+
+/* Кнопка отправки */
+.button_translate {
+    position: absolute;
+    right: 1%;
+    top: 12%;
+    background-color: #4A90E2;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.button_translate:hover {
+    background-color: #357ABD;
+    transform: scale(1.05);
+}
+
+.button_translate img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+}
+
+/* Стиль для слова вывода */
+.word_stat,
+.word_start1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.word_end {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Кнопки нижнего меню */
+.next_word,
+.button_tr,
+.add_word {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #4A90E2;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.2s;
+}
+
+.next_word:hover,
+.button_tr:hover,
+.add_word:hover {
+    background-color: #357ABD;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 600px) {
+    .footer {
+        padding: 20px;
+    }
+
+    .footer_up {
+        font-size: 1.5rem;
+    }
+
+    .word_stat,
+    .word_start1 {
+        font-size: 1rem;
+    }
+
+    .word_end {
+        font-size: 1.2rem;
+    }
+
+    .next_word,
+    .button_tr,
+    .add_word {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Стиль для попапа */
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    background-color: rgba(54, 54, 54, 0.596);
+    /* добавляем скролл */
+    /* немного отступов для комфорта */
+    box-sizing: border-box;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.cover.cover_hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.cover:not(.cover_hidden) {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popup {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    /* ограничение ширины для удобства на больших экранах */
+    max-height: 90vh;
+    /* чтобы не выходить за высоту окна */
+    overflow-y: auto;
+    /* вертикальный скролл внутри попап */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.container_word {
+    display: flex;
+    gap: 35px;
+}
+
+.popup_word,
+.popup_wordTranslate {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.popup_word form, .popup_wordTranslate form{
+        display: grid;
+        grid-template-columns: 200px auto;
+        gap: 25px;
+}
+
+#10 {
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.add_words,
+.add_wordsTranslate {
+    background-color: #4A90E2;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+
+    transition: background-color 0.3s;
+}
+
+.word_text div, .wordTranslate_text div {
+    display: grid;
+    grid-template-columns: 200px auto;
+    gap: 20px;
+    align-items: center;
+}
+
+.add_words:hover,
+.add_wordsTranslate:hover {
+    background-color: #357ABD;
+}
+
+.popup_clouse {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.2s;
+}
+
+.popup_clouse:hover {
+    color: #333;
+}
+.input_add_words, .input_add_Transwords {
+    border-bottom: 2px solid #ddd;
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input_add_words:focus, .input_add_Transwords:focus {
+    outline: none;
+    border-color: #4A90E2;
+}
+
+.red {
+    background-color: rgb(235, 20, 20);
+}
+
+.grin {
+    background-color: rgb(0, 204, 27);
+}
+
+
