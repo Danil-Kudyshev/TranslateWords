@@ -194,4 +194,17 @@ function toUpp(text) {
 }
 
 
-
+function replaceWords() {
+    const a0 = habbits[0]
+    const a1 = habbits[1]
+    habbits[0] = a1
+    habbits[1] = a0
+    console.log(habbits);
+    saveData()
+    document.querySelector('.wordTranslate_text').innerHTML = ''
+    document.querySelector('.word_text').innerHTML = ''
+    constructor()
+    nextWord ()
+    
+}
+document.querySelector('.button_replace').addEventListener('click', replaceWords )

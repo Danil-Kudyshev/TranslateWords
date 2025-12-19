@@ -43,9 +43,28 @@ body {
 
 /* Нижняя часть с переводом и формой */
 .footer_bottom {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+.button_replace {
+    padding: 5px;
+    position: absolute;
+    right: 1%;
+    top: 12%;
+    background-color: #ff48ad;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.button_replace:hover {
+    background-color: #da4295;
 }
 .footer_bottom form {
     position: relative;
