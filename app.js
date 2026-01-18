@@ -38,7 +38,7 @@ function checkWord() {
                 // Через секунду переключаемся на следующее слово
                 setTimeout(() => {
                     nextWord()
-                }, 500)
+                }, 650)
                 return true
             } else {
                 document.querySelector('.button_translate').classList.add('red')
@@ -59,10 +59,23 @@ function nextWord () {
     if (habbits[0].length == 0) {
         return
     }
-    a()
-    document.querySelector('.word_end1').value = ''
-    document.querySelector('.button_translate').classList.remove('grin')
-    document.querySelector('.button_translate').classList.remove('red')
+    if (document.querySelector('.word_end1').value === '') {
+        translate()
+        // document.querySelector('.button_translate').classList.add('grin')
+        setTimeout (() => {
+            document.querySelector('.word_end1').value = ''
+            document.querySelector('.button_translate').classList.remove('grin')
+            document.querySelector('.button_translate').classList.remove('red')
+        a()
+        }, 650)
+    } else {
+        a()
+        document.querySelector('.word_end1').value = ''
+        document.querySelector('.button_translate').classList.remove('grin')
+        document.querySelector('.button_translate').classList.remove('red')
+        
+    }
+
 }
 
 function addPopup() {
@@ -171,14 +184,9 @@ function translate() {
     }
     const a = document.querySelector('.word_end').innerText
     const checkHabbits = habbits[0].indexOf(a)
-    document.querySelector('.word_end1').value = habbits[1][checkHabbits]
-    console.log(checkHabbits);
-    
-    
-    
+    document.querySelector('.word_end1').value = habbits[1][checkHabbits]    
 }
 elements.buttonTranslate.addEventListener('click', translate)
-
 
 
 if (habbits[0].length == 0) {
